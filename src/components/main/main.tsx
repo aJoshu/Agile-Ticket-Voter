@@ -1,4 +1,5 @@
 import Button from 'react-bootstrap/Button';
+import requstSession from '../../utils/requestSession';
 import "./style.scss";
 
 export default function Main() {
@@ -11,7 +12,7 @@ export default function Main() {
         </p>
       </div>
       <div className="main-buttons">
-          <Button variant="primary">Create Session</Button>
+          <Button variant="primary" onClick={()=>{requstSession()}}>Create Session</Button>
           <Button variant="primary">Join Session</Button>
       </div>
     </div>
