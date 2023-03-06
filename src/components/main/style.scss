@@ -6,11 +6,11 @@
   background: rgb(200, 200, 200);
   width: 50vw;
   max-width: 512px;
-  min-width: 128px;
+  min-width: 320px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
-  margin-top: 128px;
+  margin-top: 64px;
   padding: 16px 48px 16px 48px;
 }
 
@@ -22,7 +22,7 @@
   background: rgb(200, 200, 200);
   width: 50vw;
   max-width: 512px;
-  min-width: 128px;
+  min-width: 320px;
   margin-left: auto;
   margin-right: auto;
   padding: 16px 48px 16px 48px;
@@ -33,4 +33,18 @@
 .main-buttons{
     display:flex;
     justify-content: space-between;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid-Item{
+  text-align: center;
+  background:rgba($color: #000000, $alpha: 0.2);
+  height:32px;
+  margin:8px;
+  border-radius: 2px;
+  cursor: pointer;
 }

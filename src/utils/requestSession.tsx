@@ -2,15 +2,17 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 export default async function requstSession() {
-  const userId = Cookies.get("userID");
-  console.log(userId);
+  const userID = Cookies.get("userID");
+  console.log(userID);
 
   try {
     const response = await axios.post('/createSession', {
-      // request body data goes here, if any
+      userID
     });
 
-    console.log('Response:', response.data);
+    return response;
+    
+    
     // do something with the response data
   } catch (error) {
     console.error('Error:', error);
