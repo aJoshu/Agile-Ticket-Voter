@@ -1,3 +1,4 @@
+
 .main-containers {
   justify-content: space-between;
 }
@@ -33,6 +34,27 @@
 .main-buttons{
     display:flex;
     justify-content: space-between;
+}
+
+.button-item{
+  width:50%;
+  margin:0 16px 0 16px;
+}
+
+.button-item button{
+  width:100%;
+}
+
+.button-item button, .button-item span{
+  background:rgb(199, 88, 88);
+  color:white;
+  border:none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.button-item button:hover, .button-item span:hover{
+  background:rgb(199, 88, 88);
 }
 
 .wrapper{
