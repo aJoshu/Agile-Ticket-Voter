@@ -30,63 +30,65 @@
   margin-top: 32px;
 }
 
-.main-buttons{
-    display:flex;
-    justify-content: space-between;
+.main-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
-.button-item{
-  width:50%;
-  margin:0 16px 0 16px;
+.button-item {
+  width: 50%;
+  margin: 0 16px 0 16px;
 }
 
-.button-item button{
-  width:100%;
+.button-item button {
+  width: 100%;
 }
 
-.button-item button, .button-item span{
-  background:#c75858;
-  color:white;
-  border:none;
+.button-item button,
+.button-item span {
+  background: #c75858;
+  color: white;
+  border: none;
   transition: 0.5s;
   cursor: pointer;
 }
 
-.button-item button:hover, .button-item span:hover{
-  background:#c75858;
+.button-item button:hover,
+.button-item span:hover {
+  background: #c75858;
 }
 
-.wrapper{
+.wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.grid-Item{
+.grid-Item {
   text-align: center;
-  background:rgba($color: #000000, $alpha: 0.2);
-  height:32px;
-  margin:8px;
+  background: rgba($color: #000000, $alpha: 0.2);
+  height: 32px;
+  margin: 8px;
   border-radius: 2px;
   cursor: pointer;
 }
 
-.vote-box{
-  height:32px;
-  width:32px;
+.vote-box {
+  height: 32px;
+  width: 32px;
   border-radius: 4px;
   text-align: center;
-  margin:4px 0 4px 0;
+  margin: 4px 0 4px 0;
 }
 
-.vote-green{
-  background:#5ec950;
+.vote-green {
+  background: #5ec950;
 }
 
-.vote-red{
-  background:#c75858;
+.vote-red {
+  background: #c75858;
 }
 
-.vote-list{
-  display:flex;
+.vote-list {
+  display: flex;
   justify-content: space-between;
 }

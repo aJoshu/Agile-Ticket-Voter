@@ -67,9 +67,9 @@ export default function Main() {
   };
 
   const voteBox = (member: members) => {
-    if(getShowVotes){
+    if (getShowVotes) {
       return <div className="vote-box vote-green">{member.vote}</div>;
-    }else{      
+    } else {
       if (member.hasVoted) {
         return <div className="vote-box vote-green"></div>;
       } else {
@@ -127,8 +127,16 @@ export default function Main() {
           </div>
           {showUsers()}
           <div className="button-item">
-              <Button variant="primary" onClick={()=>{setShowVotes(true)}}>Show Votes</Button>
-                </div>
+            <Button
+              variant="primary"
+              onClick={() => {
+                setShowVotes(true);
+              }}
+            >
+              Show Votes
+            </Button>
+            <Button variant="primary">Clear Votes</Button>
+          </div>
         </div>
       );
     }
