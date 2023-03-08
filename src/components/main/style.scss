@@ -1,10 +1,9 @@
-
 .main-containers {
   justify-content: space-between;
 }
 
 .main-container {
-  background: rgb(200, 200, 200);
+  background: #c8c8c8;
   width: 50vw;
   max-width: 512px;
   min-width: 320px;
@@ -20,7 +19,7 @@
 }
 
 .main-buttons {
-  background: rgb(200, 200, 200);
+  background: #c8c8c8;
   width: 50vw;
   max-width: 512px;
   min-width: 320px;
@@ -46,7 +45,7 @@
 }
 
 .button-item button, .button-item span{
-  background:rgb(199, 88, 88);
+  background:#c75858;
   color:white;
   border:none;
   transition: 0.5s;
@@ -54,7 +53,7 @@
 }
 
 .button-item button:hover, .button-item span:hover{
-  background:rgb(199, 88, 88);
+  background:#c75858;
 }
 
 .wrapper{
@@ -69,4 +68,25 @@
   margin:8px;
   border-radius: 2px;
   cursor: pointer;
+}
+
+.vote-box{
+  height:32px;
+  width:32px;
+  border-radius: 4px;
+  text-align: center;
+  margin:4px 0 4px 0;
+}
+
+.vote-green{
+  background:#5ec950;
+}
+
+.vote-red{
+  background:#c75858;
+}
+
+.vote-list{
+  display:flex;
+  justify-content: space-between;
 }

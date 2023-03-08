@@ -3,11 +3,13 @@ import Cookies from "js-cookie";
 
 export default async function requstSession() {
   const userID = Cookies.get("userID");
+  const userName = Cookies.get("userName");
+
   console.log(userID);
 
   try {
     const response = await axios.post('/createSession', {
-      userID
+      userID, userName
     });
 
     return response;

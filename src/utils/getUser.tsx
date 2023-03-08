@@ -1,8 +1,12 @@
 import Cookies from "js-cookie";
 
 export default function getUser() {
-  console.log("Creating a user");
-  let user = Cookies.get("userID");
+  let userID = Cookies.get("userID");
+  let userName = Cookies.get("userName");
+  let user = {
+    userID,
+    userName
+  }
   if (user) {
     return user;
   }
