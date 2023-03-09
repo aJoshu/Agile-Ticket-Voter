@@ -15,7 +15,7 @@ export default function Main() {
   const [selected, setSelected] = useState<number>();
   const [getSession, setSession] = useState<string>();
   const [getSessionData, setSessionData] = useState<SessionData>();
-  const [getShowVotes, setShowVotes] = useState<boolean>();
+  const version = 1.1;
 
   const handleChange = (event: any) => {
     collected[event.target.id] = event.target.value;
@@ -48,7 +48,7 @@ export default function Main() {
       console.log(response);
     });
 
-    console.log('Listening for a show vote emit');
+    console.log("Listening for a show vote emit");
     socket.on(`showVotes-${getSession}`, (result: string) => {
       console.log("result");
     });
@@ -220,6 +220,7 @@ export default function Main() {
       )}
 
       {votingBoard()}
+      <div className="version">version-{version} <p onClick={()=>{window.location.href="https://www.joshuamccormick.co.uk"}}>Joshua McCormick</p></div>
     </div>
   );
 }
@@ -235,6 +236,6 @@ interface SessionData {
   sessions: {
     id: string;
     members: members[];
-    showVote:boolean;
+    showVote: boolean;
   };
 }

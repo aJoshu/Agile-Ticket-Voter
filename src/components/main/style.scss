@@ -91,3 +91,17 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+.version{
+  position: absolute;
+  bottom:16px;
+  left:16px;
+  font-weight: 200;
+  cursor: default;
+}
+
+.version p {
+  cursor: pointer;
+  font-weight: 400;
+}

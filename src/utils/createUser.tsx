@@ -15,8 +15,12 @@ export default function CreateUser() {
     user.displayName = `${enterUsername}`;
     user.id = uuid;
 
-    localStorage.setItem("userID", user.id)
-    localStorage.setItem("userName", user.displayName)
+    const domain = window.location.hostname;
+
+    window.localStorage.setItem('userID', user.id);
+    window.localStorage.setItem('userName', user.displayName);
+    (window.localStorage as Storage & { domain?: string }).domain = domain;
+    
 
   } else {
     CreateUser();
