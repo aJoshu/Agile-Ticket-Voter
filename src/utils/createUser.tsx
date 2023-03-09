@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 
 class User {
   id: string = "";
@@ -16,8 +15,9 @@ export default function CreateUser() {
     user.displayName = `${enterUsername}`;
     user.id = uuid;
 
-    Cookies.set("userID", user.id);
-    Cookies.set("userName", user.displayName);
+    localStorage.setItem("userID", user.id)
+    localStorage.setItem("userName", user.displayName)
+
   } else {
     CreateUser();
   }

@@ -1,9 +1,8 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 
 export default async function requstSession() {
-  const userID = Cookies.get("userID");
-  const userName = Cookies.get("userName");
+  const userID = localStorage.getItem("userID");
+  const userName = localStorage.getItem("userName");
 
   console.log(userID);
 

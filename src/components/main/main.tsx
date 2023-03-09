@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import io from "socket.io-client";
+import clearVotes from "../../utils/clearVotes";
 import getUser from "../../utils/getUser";
 import joinSession from "../../utils/joinSession";
 import requstSession from "../../utils/requestSession";
+import showVotes from "../../utils/showVotes";
 import "./style.scss";
 const socket = io();
 
@@ -23,6 +25,7 @@ export default function Main() {
   useEffect(() => {
     socket.on("connect", () => {
       console.log("Connected to socket");
+      console.log(getSession);
     });
   }, []);
 
@@ -37,11 +40,17 @@ export default function Main() {
     });
   };
 
+  //All listeners here
   const fetchData = (sessionID: string) => {
     socket.on(`fetchData-${sessionID}`, (response) => {
       setSession(sessionID);
       setSessionData(response);
       console.log(response);
+    });
+
+    console.log('Listening for a show vote emit');
+    socket.on(`showVotes-${getSession}`, (result: string) => {
+      console.log("result");
     });
   };
 
@@ -67,10 +76,10 @@ export default function Main() {
   };
 
   const voteBox = (member: members) => {
-    if (getShowVotes) {
+    if (getSessionData?.sessions.showVote) {
       return <div className="vote-box vote-green">{member.vote}</div>;
     } else {
-      if (member.hasVoted) {
+      if (member.vote > 0) {
         return <div className="vote-box vote-green"></div>;
       } else {
         return <div className="vote-box vote-red"></div>;
@@ -79,6 +88,7 @@ export default function Main() {
   };
 
   const showUsers = () => {
+    console.log(getSessionData?.sessions.showVote);
     if (getSessionData?.sessions?.members) {
       return (
         <div>
@@ -101,6 +111,21 @@ export default function Main() {
       );
     }
     return <></>;
+  };
+
+  const clearVoteBoard = () => {
+    if (getSession) {
+      clearVotes(getSession);
+    }
+  };
+
+  const showVote = (boolean: boolean) => {
+    if (boolean) {
+      if (getSession) {
+        showVotes(getSession);
+      }
+    } else {
+    }
   };
 
   const votingBoard = () => {
@@ -126,16 +151,27 @@ export default function Main() {
             })}
           </div>
           {showUsers()}
-          <div className="button-item">
-            <Button
-              variant="primary"
-              onClick={() => {
-                setShowVotes(true);
-              }}
-            >
-              Show Votes
-            </Button>
-            <Button variant="primary">Clear Votes</Button>
+          <div className="main-buttons">
+            <div className="button-item">
+              <Button
+                variant="primary"
+                onClick={() => {
+                  showVote(true);
+                }}
+              >
+                Show Votes
+              </Button>
+            </div>
+            <div className="button-item">
+              <Button
+                variant="primary"
+                onClick={() => {
+                  clearVoteBoard();
+                }}
+              >
+                Clear Votes
+              </Button>
+            </div>
           </div>
         </div>
       );
@@ -199,5 +235,6 @@ interface SessionData {
   sessions: {
     id: string;
     members: members[];
+    showVote:boolean;
   };
 }
