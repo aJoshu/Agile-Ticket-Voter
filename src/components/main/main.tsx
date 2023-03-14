@@ -79,7 +79,7 @@ export default function Main() {
     if (getSessionData?.sessions.showVote) {
       return <div className="vote-box vote-green">{member.vote}</div>;
     } else {
-      if (member.vote > 0) {
+      if (member.vote || member.vote == 0) {
         return <div className="vote-box vote-green"></div>;
       } else {
         return <div className="vote-box vote-red"></div>;
@@ -134,6 +134,7 @@ export default function Main() {
         <div className="main-container">
           <h3>Voting Board</h3>
           {getSession}
+          <p>Username: <b>{getUser()?.userName}</b></p>
           <p>Vote: {selected}</p>
           <div className="wrapper">
             {fibonacci.map(function (object, i) {
